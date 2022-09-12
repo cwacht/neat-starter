@@ -8,13 +8,4 @@ tags:
 ---
 Text Above
 
-
-            <details>
-              <summary>Summary</summary>
-            
-              undefined
-            
-            </details>
-            
-
 T﻿ext Below
