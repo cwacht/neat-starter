@@ -16,6 +16,25 @@ i18n:
 local_backend: true
 # publish_mode: editorial_workflow
 collections:
+  - label: "Register"
+    name: "register"
+    folder: "src/register"
+    create: true
+    editor:
+      preview: true
+    i18n: true
+    fields:
+      - { label: "State Name", name: "state_name", widget: "string" }
+      - { label: "State Abbreviation", name: "state_abbreviation", widget: "string" }
+      - { label: "Registration Type", name: "registration_type", widget: "select", options: ["online", "by-mail", "in-person", "not-needed"] }
+      - label: "Address"
+        name: "address"
+        widget: "object"
+        collapsed: true
+        fields: 
+          - {label: "Street Address", name: "street", widget: "string"}
+          - {label: "City", name: "city", widget: "string"}
+          - {label: "Postal Code", name: "post-code", widget: "string"}
   - label: "Blog"
     name: "blog"
     folder: "src/posts"
