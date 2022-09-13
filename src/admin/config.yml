@@ -27,14 +27,42 @@ collections:
       - { label: "State Name", name: "state_name", widget: "string" }
       - { label: "State Abbreviation", name: "state_abbreviation", widget: "string" }
       - { label: "Registration Type", name: "registration_type", widget: "select", options: ["online", "by-mail", "in-person", "not-needed"] }
-      - label: "Address"
-        name: "address"
+      - label: "Home Page"
+        i18n: true
+        name: "home_page"
         widget: "object"
-        collapsed: true
         fields: 
-          - {label: "Street Address", name: "street", widget: "string"}
-          - {label: "City", name: "city", widget: "string"}
-          - {label: "Postal Code", name: "post-code", widget: "string"}
+          - {label: "URL", name: "url", widget: "string"}
+          - {label: "Chosen Language", name: "registration_type", widget: "select", options: ["linked", "selectable", "not-available"], hint: "Does the URL link to a page in the user's chosen language? Will the user have an option to select their language?" }
+      - label: "Registration Page"
+        i18n: true
+        name: "registration_page"
+        widget: "object"
+        fields: 
+          - {label: "URL", name: "url", widget: "string"}
+          - {label: "Chosen Language", name: "registration_type", widget: "select", options: ["linked", "selectable", "not-available"], hint: "Does the URL link to a page in the user's chosen language? Will the user have an option to select their language?" }
+      - label: "More Info Page"
+        i18n: true
+        name: "more_info_page"
+        widget: "object"
+        fields: 
+          - {label: "URL", name: "url", widget: "string"}
+          - {label: "Chosen Language", name: "registration_type", widget: "select", options: ["linked", "selectable", "not-available"], hint: "Does the URL link to a page in the user's chosen language? Will the user have an option to select their language?" }
+      - label: 'Deadline for Online Voter Registration'
+        name: 'online_deadline'
+        widget: 'date'
+        default: ''
+        format: 'MMM Do YY'
+      - label: 'Deadline for In-Person Voter Registration'
+        name: 'in_person_deadline'
+        widget: 'date'
+        default: ''
+        format: 'MMM Do YY'
+      - label: 'Deadline for Mail-In Voter Registration Postmark'
+        name: 'mail_postmarked_deadline'
+        widget: 'date'
+        default: ''
+        format: 'MMM Do YY'
   - label: "Blog"
     name: "blog"
     folder: "src/posts"
