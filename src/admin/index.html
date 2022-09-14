@@ -12,13 +12,20 @@
         <!-- Netlify Identity Widget -->
         <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
         <script>
-            const ArticlePreview = () => (
-              <article>
-                <h1>Custom Article Preview</h1>
-                <p>This is my new article.</p>
-              </article>
-            )
-            CMS.registerPreviewTemplate('register', ArticlePreview);
+            var PostPreview = createClass({
+              render: function() {
+                var entry = this.props.entry;
+                // var image = entry.getIn(['data', 'image']);
+                // var bg = this.props.getAsset(image);
+                return h('div', {},
+                  h('h1', {}, entry.getIn(['data', 'title'])),
+                  // h('img', {src: bg.toString()}),
+                  h('div', {"className": "text"}, this.props.widgetFor('body'))
+                );
+              }
+            });
+
+            CMS.registerPreviewTemplate("posts", PostPreview);
             CMS.registerPreviewStyle("/preview-styles.css");
             CMS.registerEditorComponent({
               // Internal id of the component
